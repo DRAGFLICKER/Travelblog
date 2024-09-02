@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Blog</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet"> 
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Gupter:wght@400;500;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=PT+Sans+Narrow:wght@400;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Gupter:wght@400;500;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=PT+Sans+Narrow:wght@400;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&family=Sedan:ital@0;1&display=swap" rel="stylesheet">
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Gupter:wght@400;500;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=PT+Sans+Narrow:wght@400;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&family=Sedan:ital@0;1&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Acme&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Gupter:wght@400;500;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&family=PT+Sans+Narrow:wght@400;700&family=Pacifico&family=Patua+One&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&family=Sedan:ital@0;1&family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <style>
+      #background1{
+        background-image: url(http://www.oneikathetraveller.com/wp-content/uploads/2022/10/DSC05528-11.jpg); width: 100%; height: 800px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+      }
+
+      .violet-head {
+  position: relative;
+  z-index: 1; /* Make sure it’s above other sections if needed */
+}
+
+.card-container {
+  position: absolute;
+  top: -100px; /* Adjust this value as needed */
+  left: 0;
+  width: 100%;
+  z-index: 2; /* Ensure it overlaps */
+}
+
+
+        .container {
+            display: flex;
+            gap: 20px; /* space between divs */
+            justify-content: space-around; /* evenly distribute space between divs */
+        }
+        .inline-div {
+            width: 200px;
+            padding: 10px;
+  
+            text-align: center;
+   
+        }
+        .inline-div img {
+          
+            width:150%;
+            height: auto;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .inline-div h3 {
+            margin: 10px 0;
+            font-size:40px;
+            color: white;
+        }
+        .inline-div p {
+            font-size: 15px;
+            color: white;
+        
+        }
+        
+     
+
+     
+    </style>
+    
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/Oneika-Black-1536x469.png" alt="Logo" width="150" height="60">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item me-4">
+                    <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                </li>
+                <li class="nav-item me-4">
+                    <a class="nav-link" href="#">ABOUT</a>
+                </li>
+                <li class="nav-item me-4">
+                    <a class="nav-link" href="#">WHERE I'VE BEEN</a>
+                </li>
+                <li class="nav-item dropdown me-4">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        BLOG
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">TRAVELLING WHILE BLACK</a></li>
+                        <li><a class="dropdown-item" href="#">TRAVEL TIPS</a></li>
+                        <li><a class="dropdown-item" href="#">POPULAR POST</a></li>
+                        <li><a class="dropdown-item" href="#">EXPERIENCE</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item me-4">
+                    <a class="nav-link" href="#">PRESS</a>
+                </li>
+                <li class="nav-item me-4">
+                    <a class="nav-link" href="#">WORK WITH ME</a>
+                </li>
+                <li class="nav-item">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search">
+                        <button style="color:rgb(82, 10, 82) ; background-color:  rgb(242, 184, 48) ;" class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass-location"></i></button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+  <!-- Content Section -->
+  <section>
+    <div id="background1" style="background-image: url(http://www.oneikathetraveller.com/wp-content/uploads/2022/10/DSC05528-11.jpg); width: 100%; height: 800px; background-size: cover; background-position: center; background-attachment: fixed; position: relative; ">
+        <div style="position: absolute; top: 20px; left: 20px; color: white; font-size: 4px; font-weight: bold; text-shadow: 8px 6px 1px rgba(0, 0, 0, 0.7); margin-top: 150px; font-size: 40px; ">
+            <p style="margin: 0; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;     margin-left: 40px;font-size: 40px;
+" >Empowering you to step outside</p>
+           <p style="margin: 0; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;     margin-left: 40px;
+">your comfort</p> 
+            <p style="margin: 0; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;     margin-left: 40px;
+"> (and time) zone.</p> 
+            <button style="background-color: transparent; color: white; font-size: 30px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;     margin-left: 40px;
+"> LEARN MORE</button>
+        </div>
+        
+    </div>
+</section>
+
+</section>
+
+
+  <section style="padding: 20px;">
+    <center>
+      <div class="row">
+        <div class="col">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/TC.jpg" alt="1" style="width: 100px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/Esse.jpg" alt="2" style="width: 100px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/nbc-logo-black-and-white-2048x2048.png" alt="3" style="width: 80px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/forbes-logo-1536x432.png" alt="4" style="width: 100px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/WP.jpg" alt="5" style="width: 100px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/HUFFp.jpg" alt="6" style="width: 100px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/NYL.jpg" alt="7" style="width: 100px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/CNN-Logo-1980-1536x864.png" alt="8" style="width: 100px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/conde-nast-logo002.png" alt="9" style="width: 100px;">
+        </div>
+      </div>
+    </center>
+  </section>
+
+  <section style="display: flex; justify-content: center; margin: 40px 0;">
+    <div style="display: flex; align-items: center; max-width: 1200px; width: 100%;">
+      <!-- Content on the left side -->
+      <div style="flex: 1; padding-right: 30px; text-align: left;">
+        <h1 id="ABOUT" style="display: inline-block; border-bottom: 5px solid rgb(242, 184, 48); padding-bottom: 6px; width: 500px;">
+          Hi, I'm Oneika!
+        </h1>
+        
+  
+        <p  id="about1">I’m an Emmy Award-winning journalist, perpetual explorer, & on-camera host for Travel Channel and NBC who’s traveled to 120 countries and paid rent in 7.</p>
+        
+        <p  id="about1">I’m also an “experience connoisseur” who has, among other things, bungee-jumped over the Zambezi River, fished for piranhas in the Amazon, and climbed active volcanoes in Guatemala, Indonesia, and Ecuador.</p>
+      </div>
+  
+      <!-- Image on the right side -->
+      <div style="flex:2; max-width: 600px; border: 5px solid rgb(242, 184, 48); padding:5px;">
+        
+          <img src="http://www.oneikathetraveller.com/wp-content/uploads/2022/01/Oneika-Raymond-Headshot-horizontal-1.jpeg" alt="Oneika" style="width: 100%; height: auto; border-radius: 2px;">
+        </div>
+        
+      
+    </div>
+  </section>
+  <section style="display: flex; justify-content: center; margin: 40px 0;">
+    <div style="max-width: 800px; width: 100%; background-color: #f8f9fa; border: 5px solid  rgb(242, 184, 48); padding: 20px; border-radius: 8px; text-align: center;">
+      <h1 style="margin-bottom: 10px; font-size: 70PX;">MY GOAL ?</h1>
+      <p id="para1">
+        Live life outside of my comfort (and time) zone…. <b> and inspire YOU to do the same.</b>
+      </p>
+    </div>
+  </section>
+
+  <!-- vilot head -->
+  <section style="display: flex; justify-content: center; margin: 50px 0;">
+    <div style="width: 100%; background-color: rgb(82, 10, 82); padding: 20px; border-radius: 0px; height: 300px;">
+      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+        <h1 id="ABOUT" style="display: inline-block; border-bottom: 5px solid rgb(242, 184, 48); padding-bottom: 6px; width: 1300px;">
+          <!-- Header text can be added here -->
+        </h1>
+        <section>
+          <div style="padding: 10px;">
+            <h2 style="text-align: left; margin-bottom: 10px; color: white;">
+              The Only Question
+            </h2>
+            <h3 id="para1" style="color: white; text-align: left; margin-bottom: 10px; font-size: 70px;">
+              Where to Next?
+            </h3>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+  <!-- Container for card section -->
+<div class="card-container">
+  <!-- Card Section Content -->
+</div>
+
+  
+
+<!-- Card Section -->
+<section style="padding: 40px;">
+  <div style="display: flex; flex-direction: column; align-items: center;">
+
+    <!-- First Row -->
+    <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+      <div style="width: 300px; height: 700px; border: 0px solid #ddd; border-radius: 0px; overflow: hidden;">
+        <img src="http://www.oneikathetraveller.com/wp-content/uploads/2022/01/70964032_2384672841617291_6308446237787947008_n.jpg" alt="Card Image" style="width: 100%; height: 500px; object-fit: cover;">
+        <div style="padding: 15px; height: calc(100% - 500px); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <h5 style="margin: 0; font-size: 25px; text-align: center;">
+            Traveling While Black
+            <br><br>
+           
+           
+           
+            <button style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px; cursor: pointer;" onclick="document.getElementById('card').style.display = 'block'; this.style.display = 'none';">
+              READ MORE
+          </button>
+      
+          <!-- Card that will be displayed in the center -->
+          <div id="card" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 400px; padding: 20px; background-color: #ffffff; border: 1px solid #ccc; border-radius: 8px; box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2); text-align: center;">
+            <img src="https://www.oneikathetraveller.com/wp-content/uploads/2020/10/543054_10101079343084882_1498908165_n.jpg" alt="Placeholder Image" style="width: 100%; height: auto; border-radius: 8px;">
+            <h3 style="margin-top: 15px;">How I Afford My Bucket List Trips</h3>
+            <p style="margin-top: 10px; font-size: 10px;">Dune-bashing in Dubai.  Hiking to Machu Picchu in Peru. Marveling at the Taj Mahal in India. Going on a safari in South Africa.
+
+
+
+              While it sounds like an excerpt from a brochure, these are just a handful of the experiences I’ve been able to check off my personal bucket list for travel.
+              
+              Hi, my name is Oneika and in a typical year, I eat, sleep, and breathe travel.  There’s something about being somewhere new, seeing something different, and learning about different customs, cultures, and traditions that just… gets me.</p>
+            <button style="background-color: rgb(82, 10, 82); color: white; border: transparent; font-size: 16px; padding: 5px 10px; cursor: pointer; margin-top: 15px;" onclick="document.getElementById('card').style.display = 'none'; document.querySelector('button[onclick*=&quot;block&quot;]').style.display = 'inline-block';">
+                Close
+            </button>
+        </div>
+
+
+
+
+          </h5>
+        </div>
+      </div>
+
+      <div style="width: 300px; height: 700px; border: 0px solid #ddd; border-radius: 0px; overflow: hidden;">
+        <img src="http://www.oneikathetraveller.com/wp-content/uploads/2022/01/122767848_3356471064437459_4621046167159073791_n-800x1000.jpg" alt="Card Image" style="width: 100%; height: 500px; object-fit: cover;">
+        <div style="padding: 15px; height: calc(100% - 500px); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <h5 style="margin: 0; font-size: 25px; text-align: center;">
+            Travel Tips
+            <br><br>
+            <button style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px;">GET TIPS</button>
+          </h5>
+        </div>
+      </div>
+
+      <div style="width: 300px; height: 700px; border: 0px solid #ddd; border-radius: 0px; overflow: hidden;">
+        <img src="http://www.oneikathetraveller.com/wp-content/uploads/2022/01/147156892_3628445500573346_442678781372031002_n-800x999.jpg" alt="Card Image" style="width: 100%; height: 500px; object-fit: cover;">
+        <div style="padding: 15px; height: calc(100% - 500px); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <h5 style="margin: 0; font-size: 25px; text-align: center;">
+            Opinion
+            <br><br>
+            <button style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px;">READ MY OPINION</button>
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Row -->
+    <div style="display: flex; justify-content: center; gap: 20px;">
+      <div style="width: 300px; height: 700px; border: 0px solid #ddd; border-radius: 0px; overflow: hidden;">
+        <img src="http://www.oneikathetraveller.com/wp-content/uploads/2022/01/108592199_3052193651531870_8698763610946719543_n-800x1000.jpg" alt="Card Image" style="width: 100%; height: 500px; object-fit: cover;">
+        <div style="padding: 15px; height: calc(100% - 500px); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <h5 style="margin: 0; font-size: 25px; text-align: center;">
+            Destinations
+            <br><br>
+            <button style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px;">EXPLORE</button>
+          </h5>
+        </div>
+      </div>
+
+      <div style="width: 300px; height: 700px; border: 0px solid #ddd; border-radius: 0px; overflow: hidden;">
+        <img src="http://www.oneikathetraveller.com/wp-content/uploads/2022/01/85075470_2674764152608157_4377121735380566016_n.jpg" alt="Card Image" style="width: 100%; height: 500px; object-fit: cover;">
+        <div style="padding: 15px; height: calc(100% - 500px); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <h5 style="margin: 0; font-size: 25px; text-align: center;">
+            Popular Posts
+            <br><br>
+            <button style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px;">TRENDING</button>
+          </h5>
+        </div>
+      </div>
+
+      <div style="width: 300px; height: 700px; border: 0px solid #ddd; border-radius: 0px; overflow: hidden;">
+        <img src="http://www.oneikathetraveller.com/wp-content/uploads/2021/03/DSC07227.jpg" alt="Card Image" style="width: 100%; height: 500px; object-fit: cover;">
+        <div style="padding: 15px; height: calc(100% - 500px); display: flex; flex-direction: column; justify-content: center; align-items: center;">
+          <h5 style="margin: 0; font-size: 25px; text-align: center;">
+            Experiences
+            <br><br>
+            <button style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px;">EXPLORE</button>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section with Headings -->
+<section style="width: 100%; display: flex; justify-content: center; padding: 20px; box-sizing: border-box;">
+  <div style="width: 1300px;">
+      <!-- Line with Border -->
+      <h1 id="ABOUT" style="position: relative; border-bottom: 5px solid gold; margin: 0; height: 10px;"></h1>
+
+      <!-- Right-Aligned Headings -->
+      <div style="text-align: right; padding-top: 10px;">
+          <h1 style="margin: 10px 0; font-size: 20px;">FROM THE BLOG</h1>
+          <h2 id="ABOUT" style="font-size: 70px; margin: 0;">THE LATEST</h2>
+      </div>
+  </div>
+</section>
+
+<!-- Section with Image and Content -->
+<section style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 20px; box-sizing: border-box;">
+  <!-- Container for Centering Content -->
+  <div style="width: 80%; max-width: 1200px; display: flex; align-items: center;">
+      <!-- Left Side Image -->
+      <div style="flex: 1; padding-right: 20px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2023/01/DSC01633.jpg" 
+               alt="Placeholder Image" 
+               style="width: 100%; height: auto; border: 5px solid rgb(242, 184, 48); padding: 5px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);">
+      </div>
+
+      <!-- Right Side Content -->
+      <div style="flex: 1; text-align: left;">
+          <p style="font-size: 16px; color: #000000; margin: 0;">January 9, 2023 travel stories</p>
+          <h2 style="margin: 10px 0;">Live and work abroad in Greece: Greece Digital Nomad Visa</h2>
+          <div style="text-align: right; margin-top: 20px;">
+              <button style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px; cursor: pointer;" onclick="document.getElementById('offcanvasExample1').style.display = 'block';">
+                  READ ME MORE
+              </button>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Offcanvas Card -->
+<div id="offcanvasExample1" style="display: none; position: fixed; top: 0; right: 0; width: 500px; height: 100%; background-color: #fff; border-left: 1px solid #ccc; box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.2); padding: 20px; overflow-y: auto;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h5 style="margin: 0; font-weight: bold;">Live and work abroad in Greece: Greece Digital Nomad Visa</h5>
+      <button type="button" style="background: transparent; border: none; font-size: 20px; cursor: pointer;" onclick="document.getElementById('offcanvasExample1').style.display = 'none'; document.querySelector('button[onclick*=&quot;block&quot;]').style.display = 'inline-block';">
+          &times;
+      </button>
+  </div>
+  <div style="margin-top: 10px;">
+
+    <img src="https://www.oneikathetraveller.com/wp-content/uploads/2023/01/DSC01113.jpg" alt="" style="width: 500px; height:300px;">
+   <p> Greece now has a digital nomad visa that will allow you to live and work remotely in the country for up to 2 years. You can even bring spouses and dependents with you.</p>
+
+    Eligibility requirements include proof of remote work, income, and a clean background check. Check out this link for specific program requirements and check out this link for a downloadable visa application form.
+      <br><br>
+      Not only is Greece beautiful/historic/filled with culture, the cost of living might be lower than where you’re from. A one-bedroom apartment in Athens is only about $500-600 USD monthly. Moreover, Greece is one of the more affordable countries in Europe (excluding the touristy islands, of course).
+      <br><br>
+     <b> Have you ever worked remotely or thought about it? Which country would you move to if given the chance?</b>
+  </div>
+</div>
+<br><br>
+
+<section style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 20px; box-sizing: border-box;">
+  <!-- Container for Centering Content -->
+  <div style="width: 80%; max-width: 1200px; display: flex; align-items: center;">
+
+
+
+     <!-- Right Side Content -->
+     <div style="flex: 1; text-align: left;">
+         
+      <p style="font-size: 16px; color: #000000;">March 29, 2024
+        travel stories</p>
+        <h2 style="margin-top: 0;">48 Hours in Amelia Island: How to spend the perfect weekend in Amelia Island, Florida
+        </h2>
+        <div style="text-align:left; margin-top: 20px;">
+          <button style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px; cursor: pointer;">
+              READ ME MORE
+          </button>
+      </div>
+  </div>
+      <!-- Left Side Image -->
+      <div style="flex: 1; padding-right: 20px;">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2021/07/WhatsApp-Image-2021-06-23-at-2.07.14-PM-2-1.jpeg" 
+               alt="Placeholder Image" 
+               style="width: 100%; height: auto; border: 5px solid rgb(242, 184, 48); padding: 5px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);">
+      </div>
+
+     
+  </div>
+</section>
+
+<br><br>
+
+
+  <section style="display: flex; align-items: center; justify-content: center; width: 100%; padding: 20px; box-sizing: border-box;">
+    <!-- Container for Centering Content -->
+    <div style="width: 80%; max-width: 1200px; display: flex; align-items: center;">
+        <!-- Left Side Image -->
+        <div style="flex: 1; padding-right: 20px;">
+            <img src="https://www.oneikathetraveller.com/wp-content/uploads/2018/12/14258084_1073742892710299_3765296590513960472_o.jpg" 
+                 alt="Placeholder Image" 
+                 style="width: 100%; height: auto; border: 5px solid rgb(242, 184, 48); padding: 5px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);">
+        </div>
+
+        <!-- Right Side Content -->
+        <div style="flex: 1; text-align: left;">
+           
+            <p style="font-size: 16px; color: #000000;">July 11, 2024
+              travel stories</p>
+              <h2 style="margin-top: 0;">How to travel more safely in a time of Covid-19
+              </h2>
+              <div style="text-align: right; margin-top: 20px;">
+                <button style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px; cursor: pointer;">
+                    READ ME MORE
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<h1 id="ABOUT" style="position: relative; border-bottom: 5px solid gold; width: 1300px; margin: 0;">
+  <span style="position: absolute; right: 0; margin-right: 0; display: inline-block; background-color: white;">Noteworthy</span>
+</h1>
+
+
+<section id="nortewarth"  style="display: flex; flex-direction: column; align-items: center; padding: 20px;">
+<br><br><br>
+  <!-- First Row -->
+  <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+      <div style="width:  400px; height: 400px; border: 1px solid #ddd; border-radius: 0px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <img src="http://www.oneikathetraveller.com/wp-content/uploads/2017/08/10-Countries-Every-Black-Woman-Should-Visit-Traveling-While-Black-African-American-Travelers-1-of-11-9.jpg" alt="Card Image" style="width: 100%; height: 280px; object-fit: cover;">
+          <div style="padding: 15px; text-align: center;">
+              <h5 style="margin: 0; font-size: 22px;">10 Countries Every Black Woman Should Visit | Traveling While Black</h5>
+              <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">Read More »</p>
+          </div>
+      </div>
+      <div style="width:  400px;  height: 400px; border: 1px solid #ddd; border-radius: 0px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2017/03/DSC05441-768x480.jpg" alt="Card Image" style="width: 100%;  height: 280px; object-fit: cover;">
+          <div style="padding: 15px; text-align: center;">
+              <h5 style="margin: 0; font-size: 22px;">A different perspective: Introducing my new “Black Expats” video series!</h5>
+              <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">Read More »</p>
+          </div>
+      </div>
+      <div style="width: 400px;  height: 400px; border: 1px solid #ddd; border-radius: 0px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2017/01/5-questions-you-should-never-ask-a-black-woman-about-her-hair-690x460.jpg" alt="Card Image" style="width: 100%;  height: 280px; object-fit: cover;">
+          <div style="padding: 15px; text-align: center;">
+              <h5 style="margin: 0; font-size: 22px;">5 questions you should never ask a black woman about her hair</h5>
+              <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">Read More »</p>
+          </div>
+      </div>
+  </div>
+
+  <!-- Second Row -->
+
+  <div style="display: flex; justify-content: center; gap: 20px;">
+      <div style="width:  400px;  height: 400px; border: 1px solid #ddd; border-radius: 0px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2016/11/number-3-690x522.jpg" alt="Card Image" style="width: 100%;  height: 280px; object-fit: cover;">
+          <div style="padding: 15px; text-align: center;">
+              <h5 style="margin: 0; font-size: 22px;;">Why I’m here for the Black Girl Magic movement</h5>
+              <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">Read More »</p>
+          </div>
+      </div>
+      <div style="width: 400px; height: 400px;; border: 1px solid #ddd; border-radius: 0px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2016/09/12783665_10207685575071062_8005873492581769366_o-690x460.jpg" alt="Card Image" style="width: 100%;  height: 280px; object-fit: cover;">
+          <div style="padding: 15px; text-align: center;">
+              <h5 style="margin: 0; font-size: 22px;">6 moms who show us travel with kids is possible</h5>
+              <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">Read More »</p>
+          </div>
+      </div>
+      <div style="width: 400px;  height: 400px; border: 1px solid #ddd; border-radius: 0px; overflow: hidden; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+          <img src="https://www.oneikathetraveller.com/wp-content/uploads/2016/08/african-american-privilege-768x481.jpg" alt="Card Image" style="width: 100%;  height: 280px; object-fit: cover;">
+          <div style="padding: 15px; text-align: center;">
+              <h5 style="margin: 0; font-size: 22px;">Are African-Americans treated better than Africans abroad?</h5>
+              <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">Read More »</p>
+          </div>
+      </div>
+  </div>
+
+</section>
+</section>
+<br><br><br>
+<center>
+  <button id="nortewarth"  style="background-color: rgb(242, 184, 48); color: white; border: transparent; font-size: 20px; padding: 10px; width: 200px; height: 70px;">READ MORE POSTS</button></center>
+
+
+<br><br>
+  <!-- vedio -->
+  <section style="width: 100%; padding: 20px; background-color: #ffffff; text-align: center;">
+    <h2 id="nortewarth"  style=" font-size: 80px;">LATEST YOUTUBE VIDEO</h2>
+    <iframe width="800" height="400" src="https://www.youtube.com/embed/3XIBFdvypU0?si=phejULIylxeBP-p-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</section>
+<br><br><br>
+
+<section>
+  <h1 id="explorer"> EXPLORED DESTINATIONS</h1>
+
+<div class="world-map" style="border: 2px solid black;"  >
+  <img src="./world.svg" alt="World Map" />
+  
+  <div class="pin usa">
+      <span>United States</span>
+  </div>
+  <div class="pin france">
+      <span>France</span>
+  </div>
+  <div class="pin sweden">
+      <span>Sweden</span>
+  </div>
+  <div class="pin south-africa">
+      <span>South Africa</span>
+  </div>
+  <div class="pin brazil">
+      <span>Brazil</span>
+  </div>
+  <div class="pin china">
+      <span>China</span>
+  </div>
+  <div class="pin australia">
+      <span>Australia</span>
+  </div>
+</div>
+
+</section>
+
+<br><br>
+
+  <div style="width: 100%; background-color: rgb(82, 10, 82); padding: 20px; border-radius: 0px; height: 300px;">  <div  class="container">
+    <!-- Div with Image -->
+    <div  style="margin-top: 50px; " class="inline-div">
+        <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/OT-1536x654.png" alt="Sample Image">
+    </div>
+
+    <!-- Div with Heading and Paragraph -->
+    <div class="inline-div">
+      <i style="color: white; font-size: 50px;" class="fa-solid fa-podcast"></i>
+        <h3>Listen</h3>
+        <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">VISIT MY PODCAST » </p>
+
+    </div>
+
+    <!-- Another Div with Heading and Paragraph -->
+    <div class="inline-div">
+      <i style="color: white; font-size: 50px;" class="fa-brands fa-instagram"></i>
+        <h3>Connect</h3>
+        <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">FOLLOW MY INSTAGRAM »</p>
+        
+    </div>
+
+    <!-- Another Div with Heading and Paragraph -->
+    <div class="inline-div">
+      <i  style="color: white; font-size: 50px;" class="fa-brands fa-youtube"></i>
+        <h3>Watch</h3>
+        <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">SUBSCRIBE ON YOUTUBE »</p>
+       
+    </div>
+</div>
+
+
+
+<section style="display: flex; align-items: center; justify-content: center; text-align: center;">
+  <!-- Left Side Text -->
+  <div  style="margin-right: 40px; margin-left: 100px; margin-top: 200px;">
+      <h2 id="ABOUT"  style="font-size: 50px; color: #000000;">What I Do</h2>
+      <p id="nortewarth" style="font-size:20px; color: #000000;">I’m millennial multi-hyphenate who wears many different hats. Here’s more of what I do– on and offline</p>
+  </div>
+
+  <!-- Center Image -->
+  <div style="text-align: center;">
+      <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/119433299_3226079310809969_5152849693583427741_n.jpg" 
+           alt="Sample Image" 
+           style="width: 500px; height: auto; border: 5px solid rgb(242, 184, 48); padding: 10px; box-shadow: 5px 5px 15px rgba(5, 3, 2, 1);">
+      
+  </div>
+
+  <!-- Right Side Image -->
+  <div style="margin-left: 30px;">
+      <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/o4.jpg" 
+           alt="Right Side Image" 
+           style="width: 300px; height: auto; border: 3px solid #000000; padding: 5px; box-shadow: 8px 4px 20px rgb(0, 0, 0);">
+
+<br>
+
+           <p style="margin: 10px 0 0; padding-top: 20px; color: rgb(242, 184, 48)">TV HOST »</p>
+           <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">WRITER »</p>
+           <p style="margin: 10px 0 0; color: rgb(242, 184, 48)">SPEAKER »</p>
+
+
+
+
+  </div>
+</section>
+<br><br><br><br>
+
+
+<div style="width: 100%; background-color: rgb(82, 10, 82); padding: 20px; border-radius: 0px; height: 400px;">  <div  class="container"> </div>
+
+  <!-- Section with Heading and Paragraph Above the Inline Layout -->
+  <section style="text-align: center; padding: 20px;">
+    <!-- Inline Layout Container -->
+    <div style="display: flex; align-items: center; justify-content: center; gap: 20px; padding: 20px; width: 100%; max-width: 800px; margin: 0 auto; text-align: left;">
+        <!-- Left Side Image -->
+        <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/Top-tips-for-saving-money-on-accommodation.jpg" 
+             alt="Travel Image" 
+             style="width: 150px; height: auto; border-radius: 8px; border: 2px solid #ddd;">
+
+        <!-- Content Container -->
+        <div style="flex: 1;">
+            <!-- Heading and Paragraph -->
+            <h1 id="nortewarth" style="font-size: 40px;" >
+              <span style="color: white;">Travel More, </span>
+              <span style="color: rgb(242, 184, 48);">Spend Less</span>
+          </h1>
+            <p style="font-size: 16px; color: #000000;">Sign up now and get a FREE copy of <b>Oneika’s Top Tips for Saving Money on Accommodation!</b></p>
+            
+            <!-- Inline Form Container -->
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; margin-top: 20px;">
+                <!-- Box 1 -->
+                <div style="flex: 1; padding: 20px; box-sizing: border-box;">
+                    <input type="text" placeholder="NAME" style="width: 100%; padding: 0px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+
+                <!-- Box 2 -->
+                <div style="flex: 1; padding: 20px; box-sizing: border-box;">
+                    <input type="text" placeholder="EMAIL" style="width: 100%; padding: 0px; border: 1px solid #ccc; border-radius: 4px;">
+                </div>
+
+                <!-- Button -->
+                <button style="background-color: rgb(242, 184, 48); color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 1px; cursor: pointer; width: 200PX;">
+                    SEND
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <center>
+    <div style="width: 100%; background-color: rgb(242, 184, 48); padding: 20px; border-radius: 10px; height: 280px; width: 1000px;">  <div  class="container"> </div>
+    
+  <!-- Section with Inline Images and Descriptions -->
+    <section  id="nortewarth" style="padding: 20px; text-align: center; display: flex; justify-content: center; align-items: center; ">
+        <!-- Container for Images and Descriptions -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 25px; background-color: rgb(82, 10, 82); padding: 10px; width: 900px; height: 200px; border-radius: px;">
+
+            <!-- Image 1 -->
+            <div style="text-align: center; padding: 10px; background-color: white; border-radius: px; border: 2px solid #ddd;">
+                <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/Braz.png" alt="Image 1" style="width: 150px; height: auto; border-radius: 8px;">
+                <p style="margin: 0px 0 0; font-size: 14px; color: #000000;">The Americas</p>
+            </div>
+
+            <!-- Image 2 -->
+            <div style="text-align: center; padding: 10px; background-color: white; border-radius: px; border: px solid #ddd;">
+                <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/Europe.png" alt="Image 2" style="width: 150px; height: auto; border-radius: 8px;">
+                <p style="margin: 0px 0 0; font-size: 14px; color: #000000;">Europe</p>
+            </div>
+
+            <!-- Image 3 -->
+            <div style="text-align: center; padding: 10px; background-color: white; border-radius: px; border: px solid #ddd;">
+                <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/korea.png" alt="Image 3" style="width: 150px; height: auto; border-radius: 8px;">
+                <p style="margin: 0px 0 0; font-size: 14px; color: #000000;">Asia</p>
+            </div>
+
+            <!-- Image 4 -->
+            <div style="text-align: center; padding: 10px; background-color: white; border-radius: px; border: px solid #ddd;">
+                <img src="https://www.oneikathetraveller.com/wp-content/uploads/2022/01/Africa.png" alt="Image 4" style="width: 150px; height: auto; border-radius: 8px;">
+                <p style="margin: 0px 0 0; font-size: 14px; color: #000000;">Africa</p>
+            </div>
+
+        </div>
+    </section></center>
+ </div>
+</section>
+<div style="width: 100%; background-color: rgb(242, 184, 48); padding: 20px; border-radius: 0px; height: 340px; display: flex; align-items: center; justify-content: center;">
+  <div class=""> <br><br>
+     <center> <button style="padding: 10px 20px; font-size: 16px; background-color: rgb(82, 10, 82); color: white; border: none; border-radius: 3px; cursor: pointer;">
+        @ONEIKATRAVELLER
+      </button> <br> <br></center>
+      <button style="padding: 10px 20px; font-size: 16px; background-color: rgb(82, 10, 82); color: white; border: none; border-radius: 3px; cursor: pointer;">
+        <i class="fa-brands fa-facebook"></i>
+      </button>
+      <button style="padding: 10px 20px; font-size: 16px; background-color: rgb(82, 10, 82); color: white; border: none; border-radius: 3px; cursor: pointer;">
+        <i class="fa-brands fa-twitter"></i>
+      </button>
+      <button style="padding: 10px 20px; font-size: 16px; background-color: rgb(82, 10, 82); color: white; border: none; border-radius: 3px; cursor: pointer;">
+        <i class="fa-brands fa-instagram"></i>
+      </button>
+      <button style="padding: 10px 20px; font-size: 16px; background-color: rgb(82, 10, 82); color: white; border: none; border-radius: 3px; cursor: pointer;">
+        <i class="fa-brands fa-youtube"></i>
+      </button>
+      <button style="padding: 10px 20px; font-size: 16px; background-color: rgb(82, 10, 82); color: white; border: none; border-radius: 3px; cursor: pointer;">
+        <i class="fa-solid fa-podcast"></i>
+      </button>
+      <button style="padding: 10px 20px; font-size: 16px; background-color: rgb(82, 10, 82); color: white; border: none; border-radius: 3px; cursor: pointer;">
+        <i class="fa-solid fa-user-secret"></i>
+      </button>
+
+    </div>
+    </div>
+    <p style=" background-color:  rgb(242, 184, 48) ; text-align: center;">COPYRIGHT 2022 ONEIKA RAYMOND. WEBSITE DESIGN BY JEEVAN BENNY</p>  
+
+  </div>
+</div>
+
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
